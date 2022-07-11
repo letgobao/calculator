@@ -1,0 +1,33 @@
+/** @format */
+.key-board {
+  position: relative;
+}
+.key-board > button {
+  box-sizing: border-box;
+  font-size: 18px;
+  position: relative;
+  height: 65px;
+  width: 80px;
+  color: white;
+  outline: 1px solid black;
+  border: none;
+  background: #4d4d4d;
+}
+.key-board > button:hover {
+  cursor: pointer;
+}
+.AC,
+.zero {
+  width: 160px !important;
+}
+.AC {
+  background: #ac3939 !important;
+}
+.equal {
+  background: #004466 !important;
+  position: absolute !important;
+  top: 100%;
+  left: 100%;
+  transform: translate(-100%, -100%);
+  height: 130px !important;
+}

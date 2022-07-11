@@ -1,0 +1,13 @@
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 70px;
+    font-size: 25px;
+    color: #ffffff;
+}
+.data {
+    height: 30px;
+    font-size: 18px;
+    color:#FFC049;
+}
