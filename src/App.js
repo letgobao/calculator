@@ -36,7 +36,14 @@ function App() {
     }
   };
   const handleOper = (value) => {
-    if (data === "") {
+    if (data.indexOf("=") > 0) {
+      setData(
+        `${data.slice(
+          data.indexOf("=") + 2,
+          data.length
+        )}${value}`
+      );
+    } else if (data === "") {
       setData(value);
     } else if (
       operators.includes(data.charAt(data.length - 1))
@@ -92,21 +99,12 @@ function App() {
     return longest;
   };
   const calc = () => {
-    let constantEquals = data.lastIndexOf("=");
-    if (constantEquals < 0) {
-      constantEquals = 0;
-    }
-    const leftpath = data.slice(
-      constantEquals === 0
-        ? constantEquals
-        : constantEquals + 2,
-      data.length
-    );
-    let expression = leftpath.replace(/x/g, "*");
-    let decimalPart = longestDecimalPart(leftpath);
+    if (data === "") return;
+    let expression = data.replace(/x/g, "*");
+    let decimalPart = longestDecimalPart(data);
     console.log(decimalPart);
     let result = eval(expression).toFixed(decimalPart);
-    setData(`${leftpath} = ${result}`);
+    setData(`${data} = ${result}`);
     setInput(`${result}`);
   };
   const handleClick = (e) => {
